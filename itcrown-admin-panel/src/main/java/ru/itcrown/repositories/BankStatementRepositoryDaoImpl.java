@@ -1,4 +1,7 @@
 package ru.itcrown.repositories;
 
-public class BankStatementRepositoryDaoImpl implements BankStatementRepository {
+import org.springframework.stereotype.Component;
+
+@Component
+public class BankStatementRepositoryDaoImpl extends DefaultDaoRepository implements BankStatementRepository {
 }

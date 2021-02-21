@@ -1,4 +1,7 @@
 package ru.itcrown.repositories;
 
-public class OrganizationRepositoryDaoImpl implements OrganizationRepository{
+import org.springframework.stereotype.Component;
+
+@Component
+public class OrganizationRepositoryDaoImpl extends DefaultDaoRepository implements OrganizationRepository{
 }

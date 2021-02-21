@@ -11,8 +11,8 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 public class User extends AbstractModel{
 
     private String username;

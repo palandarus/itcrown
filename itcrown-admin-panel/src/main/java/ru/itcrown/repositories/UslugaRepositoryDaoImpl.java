@@ -1,4 +1,7 @@
 package ru.itcrown.repositories;
 
-public class UslugaRepositoryDaoImpl implements UslugaRepository{
+import org.springframework.stereotype.Component;
+
+@Component
+public class UslugaRepositoryDaoImpl extends DefaultDaoRepository implements UslugaRepository{
 }

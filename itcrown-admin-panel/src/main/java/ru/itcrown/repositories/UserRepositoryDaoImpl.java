@@ -1,8 +1,10 @@
 package ru.itcrown.repositories;
 
+import org.springframework.stereotype.Component;
 import ru.itcrown.models.User;
 
-public class UserRepositoryDaoImpl implements UserRepository{
+@Component
+public class UserRepositoryDaoImpl extends DefaultDaoRepository implements UserRepository{
 
     @Override
     public User findByUsername(String username) {

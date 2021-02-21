@@ -1,4 +1,7 @@
 package ru.itcrown.repositories;
 
-public class BillRepositoryDaoImpl implements BillRepository {
+import org.springframework.stereotype.Component;
+
+@Component
+public class BillRepositoryDaoImpl extends DefaultDaoRepository implements BillRepository {
 }
