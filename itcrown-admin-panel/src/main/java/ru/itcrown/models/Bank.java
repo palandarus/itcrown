@@ -16,4 +16,8 @@ public class Bank extends AbstractModel{
     private String correspondentAccount;
     private String bik;
 
+
+    public Bank(Long id) {
+        setId(id);
+    }
 }

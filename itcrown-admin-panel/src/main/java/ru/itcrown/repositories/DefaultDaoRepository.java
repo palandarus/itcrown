@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -14,5 +15,6 @@ import javax.sql.DataSource;
 public class DefaultDaoRepository {
 
     protected DataSource dataSource;
+    protected JdbcTemplate jdbcTemplateObject;
 
 }

@@ -1,14 +1,13 @@
-package ru.itcrown.repositories;
+package ru.itcrown.services;
 
 import ru.itcrown.models.Bank;
-import ru.itcrown.models.BankAccount;
 
 import java.util.List;
 
-public interface BankRepository {
+public interface BankService {
 
     List<Bank> findAll();
-    Bank findById(Long id);
+    Bank findById(Long id) throws Exception;
     Bank save(Bank bank);
     void removeById(Long id);
 
