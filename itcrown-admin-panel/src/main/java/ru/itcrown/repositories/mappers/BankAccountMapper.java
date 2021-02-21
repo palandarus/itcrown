@@ -3,14 +3,13 @@ package ru.itcrown.repositories.mappers;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.itcrown.models.BankAccount;
-import ru.itcrown.repositories.BankRepository;
 import ru.itcrown.services.BankService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
-public class BankAccountMapper implements , RowMapper<BankAccount> {
+public class BankAccountMapper implements RowMapper<BankAccount> {
 
     private BankService bankService;
 
