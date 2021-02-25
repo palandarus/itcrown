@@ -10,12 +10,10 @@ public interface BankService {
 
     Bank getBankById(Long id);
 
-    Bank getBankByName(String name);
 
-    Bank getBankByBik(String bik);
+    void saveOrUpdate(Bank bank);
 
-    void saveOrUpdateBank(Bank bank);
+    Bank findById(Long id);
 
-    void deleteBankById(Long id);
-
+    void removeById(Long id);
 }

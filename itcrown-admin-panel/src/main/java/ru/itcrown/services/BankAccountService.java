@@ -8,12 +8,12 @@ public interface BankAccountService {
 
     List<BankAccount> findAll();
 
-    BankAccount getBankAccountById(Long id);
 
-    void saveOrUpdateBankAccount(BankAccount bankAccount);
+    void saveOrUpdate(BankAccount bankAccount);
 
-    BankAccount getBankAccountByPaymentAccount(String paymentAccount);
+    BankAccount findByPaymentAccount(String paymentAccount);
 
-    void deleteBankAccountById(Long id);
+    void removeById(Long id);
 
+    BankAccount findById(Long id);
 }

@@ -12,14 +12,15 @@ public interface BillService {
 
     List<Bill> getAllByOrganization(Organization organization);
 
-    Bill getBillById(Long id);
 
-    Bill getBillByNumber(String number);
+    Bill findByNumber(String number);
 
-    Bill getBillByDate(Date date);
+    Bill findByDate(Date date);
 
-    void saveOrUpdateBill(Bill bill);
 
-    void deleteBillById(Long id);
+    void removeById(Long id);
 
+    Organization findById(Long id);
+
+    void saveOrUpdate(Bill bill);
 }
