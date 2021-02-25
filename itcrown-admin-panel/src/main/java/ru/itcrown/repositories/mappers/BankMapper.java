@@ -10,6 +10,8 @@ public class BankMapper implements RowMapper<Bank> {
 
     @Override
     public Bank mapRow(ResultSet resultSet, int i) throws SQLException {
-        return new Bank(resultSet.getString("name"), resultSet.getString("correspondentAccount"), resultSet.getString("bik"));
+         return new Bank(resultSet.getString("name"), resultSet.getString("correspondentAccount"),
+                 resultSet.getString("bik"));
+
     }
 }

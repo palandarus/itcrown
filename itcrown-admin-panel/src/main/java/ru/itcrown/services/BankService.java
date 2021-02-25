@@ -7,8 +7,15 @@ import java.util.List;
 public interface BankService {
 
     List<Bank> findAll();
-    Bank findById(Long id) throws Exception;
-    Bank save(Bank bank);
-    void removeById(Long id);
+
+    Bank getBankById(Long id);
+
+    Bank getBankByName(String name);
+
+    Bank getBankByBik(String bik);
+
+    void saveOrUpdateBank(Bank bank);
+
+    void deleteBankById(Long id);
 
 }

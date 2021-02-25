@@ -29,4 +29,12 @@ public class Organization extends AbstractModel{
         if(!bankAccounts.contains(bankAccount)) bankAccounts.remove(bankAccount);
     }
 
+    public Organization(Long id, String name, String director, String accountant, String inn, String ksk) {
+        setId(id);
+        this.name = name;
+        this.director = director;
+        this.accountant = accountant;
+        this.inn = inn;
+        this.ksk = ksk;
+    }
 }

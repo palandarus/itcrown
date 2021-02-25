@@ -10,6 +10,6 @@ public class UslugaMapper implements RowMapper<Usluga> {
 
     @Override
     public Usluga mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null;
+        return new Usluga(resultSet.getLong("id"), resultSet.getString("name"), resultSet.getBigDecimal("cost"));
     }
 }

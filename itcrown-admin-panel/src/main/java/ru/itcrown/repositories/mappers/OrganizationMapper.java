@@ -10,6 +10,8 @@ public class OrganizationMapper implements RowMapper<Organization> {
 
     @Override
     public Organization mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null;
+        return new Organization(resultSet.getLong("id"),resultSet.getString("name"),
+                resultSet.getString("director"), resultSet.getString("accountant"),
+                resultSet.getString("inn"), resultSet.getString("ksk"));
     }
 }

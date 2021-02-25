@@ -1,15 +1,15 @@
 package ru.itcrown.repositories;
 
 import ru.itcrown.models.Bank;
-import ru.itcrown.models.BankAccount;
 
-import java.util.List;
+import java.util.Map;
 
 public interface BankRepository {
 
-    List<Bank> findAll();
+    Map<Long, Bank> findAll();
     Bank findById(Long id);
-    Bank save(Bank bank);
+    Bank findByBik(String bik);
+    void save(Bank bank);
     void removeById(Long id);
-
+    Bank findByName(String name);
 }

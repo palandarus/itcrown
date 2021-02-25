@@ -10,6 +10,6 @@ public class DocumentMapper implements RowMapper<Document> {
 
     @Override
     public Document mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null;
+        return new Document(resultSet.getLong("id"),resultSet.getDate("date"), resultSet.getBigDecimal("totalPrice"));
     }
 }

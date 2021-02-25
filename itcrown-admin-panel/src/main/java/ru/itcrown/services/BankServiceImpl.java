@@ -1,45 +1,59 @@
 package ru.itcrown.services;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.itcrown.models.Bank;
 import ru.itcrown.repositories.BankRepository;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-@Component
+@Service
 public class BankServiceImpl implements BankService {
-    private BankRepository bankRepository;
-     List<Bank> bankLists=new ArrayList<>();
+    private final BankRepository bankRepository;
+    private final Map<Long, Bank> banksMap = new HashMap<Long, Bank>();
+
+    @Autowired
+    public BankServiceImpl(BankRepository bankRepository) {
+        this.bankRepository = bankRepository;
+    }
 
     @Override
     public List<Bank> findAll() {
-        List<Bank> bankListsFromRepository=bankRepository.findAll();
-        if(!bankLists.isEmpty() && bankLists.containsAll(bankListsFromRepository)) return bankLists;
-        else {
-            bankLists.clear();
-            bankLists.addAll(bankListsFromRepository);
-        }
+        Map<Long, Bank> banksMapFromRepository = bankRepository.findAll();
+        banksMap.clear();
+        banksMap.putAll(banksMapFromRepository);
+        return banksMap.values().stream().collect(Collectors.toList());
     }
 
     @Override
-    public Bank findById(Long id) throws Exception {
-        Bank tempBank=new Bank(id);
-        if(bankLists.contains(tempBank)) return bankLists.get(bankLists.indexOf(tempBank));
-        else{
-            findAll();
-            if(!bankLists.contains(tempBank)) throw new Exception("Bank does not exist with id= "+id.toString());
-            else return bankLists.get(bankLists.indexOf(tempBank));
-        }
+    public Bank getBankById(Long id) {
+        Bank bank = bankRepository.findById(id);
+        if (!banksMap.containsValue(bank)) findAll();
+        return bank;
     }
 
     @Override
-    public Bank save(Bank bank) {
-        return null;
+    public Bank getBankByName(String name) {
+        return bankRepository.findByName(name);
     }
 
     @Override
-    public void removeById(Long id) {
+    public Bank getBankByBik(String bik) {
+        return bankRepository.findByBik(bik);
+    }
 
+    @Override
+    public void saveOrUpdateBank(Bank bank) {
+        bankRepository.save(bank);
+        findAll();
+    }
+
+    @Override
+    public void deleteBankById(Long id) {
+        bankRepository.removeById(id);
+        banksMap.remove(id);
     }
 }

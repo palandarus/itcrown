@@ -11,10 +11,18 @@ import java.sql.SQLException;
 @Component
 public class BankAccountMapper implements RowMapper<BankAccount> {
 
-    private BankService bankService;
+    private final BankService bankService;
+
+
+    public BankAccountMapper(BankService bankService) {
+        this.bankService = bankService;
+    }
 
     @Override
     public BankAccount mapRow(ResultSet resultSet, int i) throws SQLException {
-        return new BankAccount(resultSet.getString("name"), bankService.findById(Long.parseLong(resultSet.getString("bankId"))));
+        return new BankAccount(resultSet.getString("name"),
+                bankService.getBankById(Long.parseLong(resultSet.getString("bankId"))));
     }
+
+
 }

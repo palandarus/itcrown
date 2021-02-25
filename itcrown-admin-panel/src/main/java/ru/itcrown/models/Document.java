@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +19,12 @@ public class Document extends AbstractModel{
     private Date date;
     private BigDecimal totalSum;
     private Map<Usluga, Long> uslugaMap=new HashMap<>();
+
+    public Document(Long id, Date date, BigDecimal totalSum) {
+        setId(id);
+        this.date = date;
+        this.totalSum = totalSum;
+    }
 
     public void addUslugaToBill(Usluga usluga, Long quantity){
         if(uslugaMap.containsKey(usluga)) uslugaMap.put(usluga, uslugaMap.get(usluga)+quantity);

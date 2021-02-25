@@ -9,6 +9,9 @@ import java.sql.SQLException;
 public class BankStatementMapper implements RowMapper<BankStatement> {
     @Override
     public BankStatement mapRow(ResultSet resultSet, int i) throws SQLException {
-        return null;
+        BankStatement tempBankStatement= new BankStatement();
+        tempBankStatement.setDateTime(resultSet.getDate("dateTime"));
+        tempBankStatement.setId(resultSet.getLong("id"));
+        return tempBankStatement;
     }
 }

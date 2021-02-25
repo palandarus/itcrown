@@ -17,7 +17,6 @@ public class User extends AbstractModel{
 
     private String username;
 
-    private boolean enabled;
 
     private String password;
 
@@ -37,4 +36,22 @@ public class User extends AbstractModel{
 
     private Collection<Role> roles = new ArrayList<>();
 
+    public User(Long id, String username, String password, Date birthday, String address, String description, String firstName, String lastName, String email, String phone) {
+        setId(id);
+        this.username = username;
+        this.password = password;
+        this.birthday = birthday;
+        this.address = address;
+        this.description = description;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public void addRole(Role role) {
+    }
+
+    public void removeRole(Role role) {
+    }
 }
