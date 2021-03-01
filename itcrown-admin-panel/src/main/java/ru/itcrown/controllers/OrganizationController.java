@@ -1,8 +1,8 @@
 package ru.itcrown.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +12,7 @@ import ru.itcrown.services.OrganizationService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/organizations")
 public class OrganizationController {
@@ -19,10 +20,6 @@ public class OrganizationController {
     private final OrganizationService organizationService;
     private static final Logger getLogger=LoggerFactory.getLogger(OrganizationController.class);
 
-    @Autowired
-    public OrganizationController(OrganizationService organizationService) {
-        this.organizationService = organizationService;
-    }
 
     private static final Logger logger = LoggerFactory.getLogger(OrganizationController.class);
 
@@ -61,8 +58,6 @@ public class OrganizationController {
         organizationService.saveOrUpdate(organization);
         return "redirect:/organizations";
     }
-
-
 
 
     @PostMapping("/organizations/edit")

@@ -1,8 +1,8 @@
 package ru.itcrown.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +12,7 @@ import ru.itcrown.services.RoleService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/roles")
 public class RoleController {
@@ -19,10 +20,6 @@ public class RoleController {
     private final RoleService roleService;
     private static final Logger logger = LoggerFactory.getLogger(RoleController.class);
 
-    @Autowired
-    public RoleController(RoleService roleService) {
-        this.roleService = roleService;
-    }
 
     @GetMapping()
     public String showAllRoles(Model model) {
@@ -58,8 +55,6 @@ public class RoleController {
         roleService.saveOrUpdate(role);
         return "redirect:/roles";
     }
-
-
 
 
     @PostMapping("/roles/edit")

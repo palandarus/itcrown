@@ -8,12 +8,13 @@ public interface BankService {
 
     List<Bank> findAll();
 
-    Bank getBankById(Long id);
-
-
     void saveOrUpdate(Bank bank);
 
     Bank findById(Long id);
 
     void removeById(Long id);
+
+    Bank findByName(String name);
+
+    Bank findByBik(String bik);
 }

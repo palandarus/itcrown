@@ -1,8 +1,8 @@
 package ru.itcrown.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +12,7 @@ import ru.itcrown.services.UslugaService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/uslugi")
 public class UslugaController {
@@ -19,10 +20,6 @@ public class UslugaController {
     private final UslugaService uslugiService;
     private static final Logger logger = LoggerFactory.getLogger(RoleController.class);
 
-    @Autowired
-    public UslugaController(UslugaService uslugiService) {
-        this.uslugiService = uslugiService;
-    }
 
     @GetMapping()
     public String showAllUslugi(Model model) {
@@ -58,8 +55,6 @@ public class UslugaController {
         uslugiService.saveOrUpdate(usluga);
         return "redirect:/uslugi";
     }
-
-
 
 
     @PostMapping("/uslugi/edit")

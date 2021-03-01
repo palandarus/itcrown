@@ -1,11 +1,9 @@
 package ru.itcrown.models;
 
 import lombok.Getter;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("singleton")
 @Getter
 public class DocumentTransport {
 

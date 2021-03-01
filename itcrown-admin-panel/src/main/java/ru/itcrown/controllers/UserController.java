@@ -1,9 +1,9 @@
 package ru.itcrown.controllers;
 
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +13,7 @@ import ru.itcrown.services.UserService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -20,10 +21,6 @@ public class UserController {
     private final UserService userService;
     private static final Logger logger = LoggerFactory.getLogger(RoleController.class);
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping()
     public String showAllUsers(Model model) {

@@ -1,9 +1,9 @@
 package ru.itcrown.controllers;
 
 
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,17 +13,13 @@ import ru.itcrown.services.BankAccountService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/bankaccounts")
 public class BankAccountController {
 
     private static final Logger getLogger = LoggerFactory.getLogger(BankAccountController.class);
     private final BankAccountService bankAccountService;
-
-    @Autowired
-    public BankAccountController(BankAccountService bankAccountService) {
-        this.bankAccountService = bankAccountService;
-    }
 
 
     @GetMapping()

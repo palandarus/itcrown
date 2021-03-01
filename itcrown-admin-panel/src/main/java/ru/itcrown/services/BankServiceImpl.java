@@ -29,30 +29,29 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public Bank getBankById(Long id) {
-        Bank bank = bankRepository.findById(id);
-        if (!banksMap.containsValue(bank)) findAll();
-        return bank;
+    public Bank findById(Long id) {
+        if (banksMap.get(id) == null) findAll();
+        return banksMap.get(id);
     }
 
     @Override
-    public Bank getBankByName(String name) {
+    public Bank findByName(String name) {
         return bankRepository.findByName(name);
     }
 
     @Override
-    public Bank getBankByBik(String bik) {
+    public Bank findByBik(String bik) {
         return bankRepository.findByBik(bik);
     }
 
     @Override
-    public void saveOrUpdateBank(Bank bank) {
+    public void saveOrUpdate(Bank bank) {
         bankRepository.save(bank);
         findAll();
     }
 
     @Override
-    public void deleteBankById(Long id) {
+    public void removeById(Long id) {
         bankRepository.removeById(id);
         banksMap.remove(id);
     }
