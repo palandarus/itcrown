@@ -1,14 +1,12 @@
 package ru.itcrown.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.itcrown.models.Bill;
-import ru.itcrown.models.Organization;
 import ru.itcrown.services.BillService;
 
 import java.util.List;
@@ -16,9 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/bills")
+@Slf4j
 public class BillController {
 
-    private static final Logger getLogger = LoggerFactory.getLogger(BillController.class);
     private final BillService billService;
 
 
@@ -32,7 +30,7 @@ public class BillController {
 
     @GetMapping("/bills/edit/{id}")
     public String showBillEditForm(@PathVariable Long id, Model model) {
-        Organization bill = billService.findById(id);
+        Bill bill = billService.findById(id);
         model.addAttribute("bill", bill);
         return "bill";
     }

@@ -5,16 +5,16 @@ import org.springframework.stereotype.Service;
 import ru.itcrown.models.Usluga;
 import ru.itcrown.repositories.UslugaRepository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
 public class UslugaServiceImpl implements UslugaService {
 
     private final UslugaRepository uslugaRepository;
-    private Map<Long, Usluga> uslugaMap = new HashMap<>();
+    private Map<Long, Usluga> uslugaMap = new ConcurrentHashMap<>();
 
     @Autowired
     public UslugaServiceImpl(UslugaRepository uslugaRepository) {

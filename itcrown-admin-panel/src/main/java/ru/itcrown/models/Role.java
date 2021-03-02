@@ -1,13 +1,11 @@
 package ru.itcrown.models;
 
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class Role extends AbstractModel{
 
     private String name;

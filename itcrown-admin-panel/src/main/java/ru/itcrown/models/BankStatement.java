@@ -1,16 +1,14 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class BankStatement extends AbstractModel{
 
     private Date dateTime;

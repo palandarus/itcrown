@@ -6,14 +6,14 @@ import ru.itcrown.models.BankAccount;
 import ru.itcrown.repositories.BankAccountRepository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class BankAccountServiceImpl implements BankAccountService {
 
-    private final Map<Long, BankAccount> bankAccountsMap = new HashMap<>();
+    private final Map<Long, BankAccount> bankAccountsMap = new ConcurrentHashMap<>();
 
     private final BankAccountRepository bankAccountRepository;
 
@@ -23,24 +23,24 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
 
     @Override
-    public BankAccount getBankAccountById(Long id) {
+    public BankAccount findById(Long id) {
         if (bankAccountsMap.get(id) == null) findAll();
         return bankAccountsMap.get(id);
     }
 
     @Override
-    public void saveOrUpdateBankAccount(BankAccount bankAccount) {
+    public void saveOrUpdate(BankAccount bankAccount) {
         bankAccountRepository.save(bankAccount);
         bankAccountsMap.put(bankAccount.getId(), bankAccount);
     }
 
     @Override
-    public BankAccount getBankAccountByPaymentAccount(String paymentAccount) {
+    public BankAccount findByPaymentAccount(String paymentAccount) {
         return bankAccountRepository.findByPaymentAccount(paymentAccount);
     }
 
     @Override
-    public void deleteBankAccountById(Long id) {
+    public void removeById(Long id) {
         bankAccountRepository.removeById(id);
         bankAccountsMap.remove(id);
     }

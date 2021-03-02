@@ -7,7 +7,11 @@ import ru.itcrown.models.Bill;
 import ru.itcrown.models.Payment;
 import ru.itcrown.repositories.PaymentRepository;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,7 +19,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 
     private final PaymentRepository paymentRepository;
-    private Map<Long, Payment> paymentMap = new HashMap<>();
+    private Map<Long, Payment> paymentMap = new ConcurrentHashMap<>();
 
     @Autowired
     public PaymentServiceImpl(PaymentRepository paymentRepository) {

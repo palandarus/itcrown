@@ -1,8 +1,7 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,8 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class Bill extends AbstractModel {
 
     private String number;

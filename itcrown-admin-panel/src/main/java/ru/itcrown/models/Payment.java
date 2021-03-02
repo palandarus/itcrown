@@ -1,14 +1,12 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class Payment extends AbstractModel{
     private Date dateTime;
     private String number;

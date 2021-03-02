@@ -7,9 +7,9 @@ import ru.itcrown.models.Document;
 import ru.itcrown.repositories.DocumentRepository;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class DocumentServicePdfImpl implements DocumentService {
 
     private final DocumentRepository documentRepository;
-    private Map<Long, Document> documentMap=new HashMap<>();
+    private Map<Long, Document> documentMap = new ConcurrentHashMap<>();
 
     @Autowired
     public DocumentServicePdfImpl(DocumentRepository documentRepository){

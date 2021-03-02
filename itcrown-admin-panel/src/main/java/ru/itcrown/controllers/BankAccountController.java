@@ -2,8 +2,7 @@ package ru.itcrown.controllers;
 
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,9 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/bankaccounts")
+@Slf4j
 public class BankAccountController {
 
-    private static final Logger getLogger = LoggerFactory.getLogger(BankAccountController.class);
     private final BankAccountService bankAccountService;
 
 

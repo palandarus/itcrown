@@ -1,6 +1,7 @@
 package ru.itcrown.controllers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/organizations")
+@Slf4j
 public class OrganizationController {
 
     private final OrganizationService organizationService;
-    private static final Logger getLogger=LoggerFactory.getLogger(OrganizationController.class);
 
 
     private static final Logger logger = LoggerFactory.getLogger(OrganizationController.class);

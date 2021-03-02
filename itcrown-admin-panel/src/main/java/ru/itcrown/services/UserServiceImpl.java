@@ -13,16 +13,16 @@ import ru.itcrown.models.User;
 import ru.itcrown.repositories.UserRepository;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService, Listener {
 
     private final UserRepository userRepository;
-    private final Map<Long, User> userMap = new HashMap<>();
+    private final Map<Long, User> userMap = new ConcurrentHashMap<>();
     private PasswordEncoder passwordEncoder;
 
     @Autowired

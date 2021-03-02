@@ -2,8 +2,7 @@ package ru.itcrown.controllers;
 
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,10 +15,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 
     private final UserService userService;
-    private static final Logger logger = LoggerFactory.getLogger(RoleController.class);
 
 
     @GetMapping()

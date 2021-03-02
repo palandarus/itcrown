@@ -1,14 +1,12 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class Usluga extends AbstractModel{
 
     private String name;

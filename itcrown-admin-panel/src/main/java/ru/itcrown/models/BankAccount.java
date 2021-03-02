@@ -1,12 +1,10 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class BankAccount extends AbstractModel{
     private String paymentAccount;
     private Bank bank;

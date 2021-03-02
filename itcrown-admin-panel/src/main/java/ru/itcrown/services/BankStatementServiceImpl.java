@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 import ru.itcrown.models.BankStatement;
 import ru.itcrown.repositories.BankStatementRepository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class BankStatementServiceImpl implements BankStatementService {
 
     private final BankStatementRepository bankStatementRepository;
-    private Map<Long, BankStatement> bankStatementMap = new HashMap<>();
+    private Map<Long, BankStatement> bankStatementMap = new ConcurrentHashMap<>();
 
     @Autowired
     public BankStatementServiceImpl(BankStatementRepository bankStatementRepository) {

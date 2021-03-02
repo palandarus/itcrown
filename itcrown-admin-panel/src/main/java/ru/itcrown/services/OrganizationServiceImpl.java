@@ -6,9 +6,9 @@ import ru.itcrown.models.BankAccount;
 import ru.itcrown.models.Organization;
 import ru.itcrown.repositories.OrganizationRepository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class OrganizationServiceImpl implements OrganizationService {
 
     private final OrganizationRepository organizationRepository;
-    private Map<Long, Organization> organizationMap=new HashMap<>();
+    private Map<Long, Organization> organizationMap = new ConcurrentHashMap<>();
 
     @Autowired
     public OrganizationServiceImpl(OrganizationRepository organizationRepository){

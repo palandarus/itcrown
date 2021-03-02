@@ -1,15 +1,13 @@
 package ru.itcrown.models;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 public class Organization extends AbstractModel{
 
     private String name;
