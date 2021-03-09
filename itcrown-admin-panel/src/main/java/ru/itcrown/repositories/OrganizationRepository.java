@@ -11,5 +11,7 @@ public interface OrganizationRepository {
 
     Organization findByName(String name);
 
+    Organization findById(Long id);
+
     void removeById(Long id);
 }

@@ -20,6 +20,11 @@ public class OrganizationRepositoryDaoImpl extends DefaultDaoRepository implemen
     }
 
     @Override
+    public Organization findById(Long id) {
+        return null;
+    }
+
+    @Override
     public Organization findByName(String name) {
         return null;
     }
